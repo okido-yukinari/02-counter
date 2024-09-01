@@ -30,48 +30,59 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container maxWidth="sm">
-        <Box
-          sx={{
-            my: 4,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Typography variant="h4" component="h1" gutterBottom>
-            カウンター
-          </Typography>
-          <Typography
-            variant="h2"
-            component="p"
-            gutterBottom
-            aria-live="polite"
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh", // 画面の高さいっぱいに広げる
+          bgcolor: "background.default", // テーマの背景色を使用
+        }}
+      >
+        <Container maxWidth="sm">
+          <Box
+            sx={{
+              my: 4,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
-            {count}
-          </Typography>
-          <Box sx={{ display: "flex", gap: 2 }}>
-            <Button
-              onClick={downCount}
-              variant="contained"
-              color="secondary"
-              aria-label="カウントを減らす"
-              startIcon={<RemoveIcon />}
+            <Typography variant="h4" component="h1" gutterBottom>
+              カウンター
+            </Typography>
+            <Typography
+              variant="h2"
+              component="p"
+              gutterBottom
+              aria-live="polite"
             >
-              減らす
-            </Button>
-            <Button
-              onClick={upCount}
-              variant="contained"
-              color="primary"
-              aria-label="カウントを増やす"
-              startIcon={<AddIcon />}
-            >
-              増やす
-            </Button>
+              {count}
+            </Typography>
+            <Box sx={{ display: "flex", gap: 2 }}>
+              <Button
+                onClick={downCount}
+                variant="contained"
+                color="secondary"
+                aria-label="カウントを減らす"
+                startIcon={<RemoveIcon />}
+              >
+                減らす
+              </Button>
+              <Button
+                onClick={upCount}
+                variant="contained"
+                color="primary"
+                aria-label="カウントを増やす"
+                startIcon={<AddIcon />}
+              >
+                増やす
+              </Button>
+            </Box>
           </Box>
-        </Box>
-      </Container>
+        </Container>
+      </Box>
     </ThemeProvider>
   );
 }
