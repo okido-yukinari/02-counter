@@ -18,6 +18,15 @@ const theme = createTheme({
 });
 
 function App() {
+  const [count, setCount] = useState(0);
+
+  function upCount() {
+    setCount(count + 1);
+  }
+  function downCount() {
+    setCount(count - 1);
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -39,10 +48,11 @@ function App() {
             gutterBottom
             aria-live="polite"
           >
-            ０
+            {count}
           </Typography>
           <Box sx={{ display: "flex", gap: 2 }}>
             <Button
+              onClick={downCount}
               variant="contained"
               color="secondary"
               aria-label="カウントを減らす"
@@ -51,6 +61,7 @@ function App() {
               減らす
             </Button>
             <Button
+              onClick={upCount}
               variant="contained"
               color="primary"
               aria-label="カウントを増やす"
